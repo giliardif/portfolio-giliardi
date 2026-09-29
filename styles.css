@@ -275,3 +275,47 @@
     aspect-ratio:1.42/1 !important;
   }
 }
+
+/* ===== Ajuste 3.3 - proporções finais do mockup ===== */
+.hero-photo{
+  background:
+    linear-gradient(90deg,rgba(5,17,29,.22),rgba(5,17,29,.04) 48%,rgba(5,17,29,.16)),
+    url('assets/hero-tech.jpg') center center / cover no-repeat !important;
+  filter:brightness(.78) saturate(.98) contrast(1.04) !important;
+}
+.portrait{
+  max-width:360px !important;
+  width:100% !important;
+  aspect-ratio:1.42/1 !important;
+  height:auto !important;
+  justify-self:end !important;
+}
+.portrait img{
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  transform:none !important;
+}
+@media(max-width:760px){
+  .portrait{
+    width:min(100%,420px) !important;
+    max-width:420px !important;
+    aspect-ratio:1.55/1 !important;
+    justify-self:center !important;
+  }
+  .portrait blockquote{
+    right:-4px !important;
+    bottom:12px !important;
+    width:136px !important;
+  }
+}
+@media(max-width:520px){
+  .portrait{
+    width:92% !important;
+    max-width:360px !important;
+    aspect-ratio:1.48/1 !important;
+    justify-self:center !important;
+  }
+}
