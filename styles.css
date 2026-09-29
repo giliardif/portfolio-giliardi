@@ -120,3 +120,101 @@
   .portrait{min-height:390px}
   .portrait img{min-height:390px;object-position:center 20%}
 }
+
+/* ===== Ajuste 3.1 - hero tech + foto menor ===== */
+.hero-photo{
+  width:96%;
+  height:76%;
+  top:12px;
+  right:-2%;
+  background:
+    linear-gradient(90deg,rgba(5,17,29,.20),rgba(4,18,30,.04) 55%,rgba(5,17,29,.12)),
+    url('assets/giliardi-profile.jpg') right 34% center/180% auto no-repeat;
+  filter:saturate(.98) brightness(.72) contrast(1.06);
+}
+.hero-photo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,17,29,.22) 0%,rgba(5,17,29,.02) 55%,rgba(5,17,29,.14) 100%),
+    linear-gradient(180deg,rgba(5,17,29,.02),rgba(5,17,29,.24));
+}
+.portrait{
+  min-height:0;
+  height:260px;
+  max-width:360px;
+  width:100%;
+  justify-self:end;
+  border-radius:16px;
+  overflow:hidden;
+}
+.portrait img{
+  width:100%;
+  height:260px;
+  min-height:0;
+  object-fit:cover;
+  object-position:center 22%;
+}
+.portrait blockquote{
+  right:-14px;
+  bottom:18px;
+  width:145px;
+  padding:14px;
+}
+@media(max-width:1100px){
+  .portrait{
+    grid-column:auto;
+    justify-self:stretch;
+    max-width:none;
+    height:300px;
+  }
+  .portrait img{
+    height:300px;
+    min-height:0;
+    object-position:center 20%;
+  }
+}
+@media(max-width:760px){
+  .hero-photo{
+    width:100%;
+    height:72%;
+    top:28px;
+    right:0;
+    background-position:right 28% center;
+    background-size:220% auto;
+    filter:saturate(.96) brightness(.64) contrast(1.08);
+  }
+  .portrait{
+    height:320px;
+    max-width:420px;
+    justify-self:start;
+  }
+  .portrait img{
+    height:320px;
+    min-height:0;
+    object-position:center 18%;
+  }
+}
+@media(max-width:520px){
+  .hero-photo{
+    height:70%;
+    background-position:right 24% center;
+    background-size:235% auto;
+  }
+  .portrait{
+    height:300px;
+    max-width:100%;
+  }
+  .portrait img{
+    height:300px;
+    min-height:0;
+    object-position:center 16%;
+  }
+  .portrait blockquote{
+    width:132px;
+    right:-4px;
+    bottom:14px;
+    font-size:.76rem;
+  }
+}
