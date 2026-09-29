@@ -319,3 +319,237 @@
     justify-self:center !important;
   }
 }
+
+/* ===== Versão 3.5 - fidelidade ao mockup desktop ===== */
+
+/* HERO: imagem tech ocupa toda a primeira dobra, não apenas o card visual */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,
+      rgba(4,15,26,.97) 0%,
+      rgba(4,15,26,.92) 30%,
+      rgba(4,15,26,.63) 51%,
+      rgba(4,15,26,.20) 73%,
+      rgba(4,15,26,.10) 100%),
+    linear-gradient(180deg,rgba(4,15,26,.08),rgba(4,15,26,.28)),
+    url('assets/hero-tech.jpg') center right / cover no-repeat;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:auto 0 0;
+  height:110px;
+  background:linear-gradient(180deg,transparent,var(--bg));
+  pointer-events:none;
+}
+.hero .container{position:relative;z-index:2}
+.hero-grid{
+  min-height:610px;
+  align-items:center;
+  padding:54px 0 48px;
+  grid-template-columns:.92fr 1.08fr;
+  gap:36px;
+}
+.hero h1{
+  max-width:590px;
+  font-size:clamp(2.8rem,4.9vw,4.65rem);
+  line-height:.99;
+  letter-spacing:-.045em;
+}
+.hero .lead{max-width:560px}
+.hero-visual{
+  min-height:510px;
+  position:relative;
+}
+.hero-photo{
+  display:none!important;
+}
+
+/* editor semelhante ao mockup */
+.code-card{
+  width:74%;
+  max-width:610px;
+  left:8%;
+  top:54px;
+  border:1px solid rgba(57,151,255,.62);
+  border-radius:15px;
+  background:rgba(4,21,35,.94);
+  box-shadow:0 22px 55px rgba(0,0,0,.46);
+  backdrop-filter:blur(10px);
+  overflow:hidden;
+}
+.code-top{
+  height:48px;
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(7,27,45,.86);
+}
+.code-top>span{
+  color:#ff676c;
+  letter-spacing:7px;
+  font-size:.82rem;
+}
+.code-top em{
+  color:#9fb0c0;
+  font-size:.74rem;
+  font-family:'JetBrains Mono',monospace;
+  font-style:normal;
+}
+.editor-code{
+  counter-reset:line;
+  margin:0;
+  padding:18px 20px 20px 14px!important;
+  font-size:.68rem!important;
+  line-height:1.72!important;
+  overflow:visible!important;
+  color:#dfe9f3;
+}
+.editor-code code{display:block}
+.code-line{
+  display:block;
+  min-height:1.72em;
+  white-space:pre;
+  position:relative;
+  padding-left:34px;
+}
+.code-line::before{
+  counter-increment:line;
+  content:counter(line);
+  position:absolute;
+  left:0;
+  width:20px;
+  text-align:right;
+  color:#435d73;
+  user-select:none;
+}
+.code-line .cm{color:#6d8d77}
+.code-line .var{color:#79c7ff}
+.code-line .op,.code-line .punc{color:#9fb0c0}
+.code-line .str{color:#d4d785}
+.code-line .fn{color:#c995ff}
+.code-line .indent{padding-left:18px}
+
+.float-panel{
+  right:1%;
+  top:55px;
+  width:88px;
+  padding:14px 12px;
+  background:rgba(8,31,50,.9);
+  border:1px solid rgba(74,157,235,.28);
+  border-radius:10px;
+  font-size:.65rem;
+  line-height:1.75;
+}
+.float-panel i{
+  display:block;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  margin-top:3px;
+  background:var(--green);
+  box-shadow:0 0 12px var(--green);
+}
+
+/* KPI cards mais próximos do mockup */
+.kpis{
+  max-width:620px;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.kpis article{
+  min-height:72px;
+  padding:13px 15px;
+  border-radius:10px;
+  background:rgba(7,28,46,.72);
+  backdrop-filter:blur(7px);
+}
+.kicon{
+  width:38px!important;
+  height:38px!important;
+}
+
+/* ícones da stack em SVG */
+.stack-icon svg{
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.stack-icon.green{color:var(--green)!important}
+
+/* SOBRE: composição desktop do mockup */
+@media(min-width:861px){
+  #sobre .about{
+    grid-template-columns:1.05fr .74fr .76fr!important;
+    gap:34px!important;
+    align-items:center!important;
+  }
+  #sobre .portrait{
+    max-width:390px!important;
+    aspect-ratio:1.42/1!important;
+  }
+  #sobre .portrait img{
+    object-position:center 22%!important;
+  }
+  .points article{gap:13px}
+  .points article>div{
+    width:48px;
+    height:48px;
+    border-radius:10px;
+    background:#0b2945;
+  }
+}
+
+/* cards dos projetos no desktop */
+@media(min-width:861px){
+  .projects{
+    grid-template-columns:1.48fr .72fr .72fr .72fr;
+    gap:16px;
+  }
+  .featured{grid-column:auto}
+  .project{min-height:328px}
+  .featured .feature-grid{
+    height:100%;
+    grid-template-columns:1.02fr .98fr;
+    align-items:center;
+  }
+}
+
+/* mobile continua limpo e sem imagem gigante de fundo */
+@media(max-width:860px){
+  .hero{
+    background:
+      linear-gradient(180deg,rgba(4,15,26,.76),rgba(4,15,26,.96)),
+      url('assets/hero-tech.jpg') center / cover no-repeat;
+  }
+  .hero-grid{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:54px 0 64px;
+  }
+  .hero-visual{
+    min-height:500px;
+    margin-top:24px;
+  }
+  .code-card{
+    width:88%;
+    left:0;
+    top:96px;
+  }
+  .float-panel{right:0;top:65px}
+}
+@media(max-width:520px){
+  .hero h1{font-size:2.72rem}
+  .hero-visual{min-height:455px}
+  .code-card{width:92%;top:110px}
+  .editor-code{font-size:.56rem!important;padding-left:10px!important}
+  .code-line{padding-left:27px}
+  .float-panel{display:none}
+}
