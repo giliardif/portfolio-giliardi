@@ -2,7 +2,7 @@ const btn=document.getElementById('menuBtn'),mobile=document.getElementById('mob
 btn?.addEventListener('click',()=>mobile.classList.toggle('open'));
 mobile?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobile.classList.remove('open')));
 
-// Experiência profissional — carregada sem alterar a estrutura visual existente.
+// Experiência profissional — integrada ao layout atual.
 const expStyle=document.createElement('link');
 expStyle.rel='stylesheet';expStyle.href='experience.css';document.head.appendChild(expStyle);
 
@@ -22,13 +22,12 @@ const experienceHTML=`
   <div class="container">
     <div class="experience-head reveal">
       <div><div class="eyebrow">Experiência profissional</div><h2>Minha trajetória em <span>dados, processos e resultados.</span></h2></div>
-      <p>Uma jornada construída na operação logística, planejamento, inteligência de dados e liderança, sempre com foco em eficiência, inovação e geração de resultados.</p>
+      <p>Ao longo da minha carreira, atuei em operações, logística e dados, sempre buscando transformar processos em soluções mais eficientes. Essa experiência prática me deu uma visão completa do negócio e fortaleceu minhas habilidades em análise de dados, BI, automação e desenvolvimento de soluções.</p>
     </div>
     <div class="experience-highlights reveal">
-      <article><div class="exp-hi-icon">▥</div><div><strong>Visão de ponta a ponta</strong><small>Da operação à inteligência de dados</small></div></article>
-      <article><div class="exp-hi-icon">⚙</div><div><strong>Evolução contínua</strong><small>Cargos e responsabilidades crescentes</small></div></article>
-      <article><div class="exp-hi-icon">◎</div><div><strong>Experiência em grandes empresas</strong><small>Logística, e-commerce e indústria</small></div></article>
-      <article><div class="exp-hi-icon">↗</div><div><strong>Foco em resultados</strong><small>Indicadores, eficiência e melhorias</small></div></article>
+      <article><div class="exp-hi-icon">▥</div><div><strong>Evolução contínua</strong><small>Da operação à inteligência de dados</small></div></article>
+      <article><div class="exp-hi-icon">⚙</div><div><strong>Foco em resultados</strong><small>Processos mais eficientes e insights reais</small></div></article>
+      <article><div class="exp-hi-icon">◎</div><div><strong>Visão de negócio</strong><small>Logística, operações e tecnologia</small></div></article>
     </div>
     <div class="experience-list">
       <article class="exp-item reveal">
