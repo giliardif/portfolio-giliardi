@@ -63,6 +63,45 @@ document.querySelectorAll('.exp-more').forEach(el=>el.addEventListener('click',(
   const card=el.closest('.exp-card');card.classList.toggle('open');el.textContent=card.classList.contains('open')?'Ver menos ↑':'Ver mais ↓';
 }));
 
+// Formação — conteúdo correto e ícones SVG consistentes com a identidade visual.
+const formationTimeline=document.querySelector('#formacao .timeline');
+if(formationTimeline){
+  formationTimeline.innerHTML=`
+    <article class="formation-item">
+      <i class="formation-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 10 9-5 9 5-9 5-9-5Z"/><path d="M7 12.5V17c2.8 2 7.2 2 10 0v-4.5"/><path d="M21 10v6"/></svg></i>
+      <div><div class="formation-title"><strong>Graduação em Logística</strong><span class="formation-status done">Concluída</span></div><small>Processos, cadeia de suprimentos, operações e visão de negócio.</small></div>
+    </article>
+    <b></b>
+    <article class="formation-item">
+      <i class="formation-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v5c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 10v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/><path d="M9 18h6M12 15v6"/></svg></i>
+      <div><div class="formation-title"><strong>Pós-graduação em Ciência de Dados</strong><span class="formation-status done">Concluída</span></div><small>Análise de dados, estatística, Python, machine learning e apoio à decisão.</small></div>
+    </article>
+    <b></b>
+    <article class="formation-item">
+      <i class="formation-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 6h5v5H5zM14 13h5v5h-5z"/><path d="M10 8.5h3a3 3 0 0 1 3 3V13M8 11v4a3 3 0 0 0 3 3h3"/><path d="m16.5 4 2 2-2 2"/></svg></i>
+      <div><div class="formation-title"><strong>Pós-graduação em Engenharia de Dados</strong><span class="formation-status progress">Em andamento</span></div><small>Arquitetura de dados, ETL/ELT, pipelines, cloud e soluções escaláveis.</small></div>
+    </article>`;
+
+  const formationStyle=document.createElement('style');
+  formationStyle.textContent=`
+    .formation-item{min-width:0}
+    .formation-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .formation-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .formation-status{display:inline-flex;align-items:center;padding:3px 7px;border-radius:999px;font-size:.56rem;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+    .formation-status.done{color:#65e9c5;background:rgba(34,211,163,.10);border:1px solid rgba(34,211,163,.24)}
+    .formation-status.progress{color:#74bfff;background:rgba(53,167,255,.10);border:1px solid rgba(53,167,255,.28)}
+    @media(max-width:760px){
+      #formacao .timeline{gap:0}
+      #formacao .timeline article{grid-template-columns:58px 1fr;gap:14px}
+      #formacao .timeline article>i{width:54px;height:54px;background:linear-gradient(145deg,#0d3152,#0a2239);box-shadow:inset 0 0 0 1px rgba(53,167,255,.06),0 8px 24px rgba(0,0,0,.16)}
+      #formacao .timeline>b{height:30px;margin-left:27px;background:linear-gradient(180deg,#248bd0,#1fd4a2)}
+      #formacao .timeline strong{font-size:.94rem;line-height:1.25}
+      #formacao .timeline small{font-size:.72rem;line-height:1.48;margin-top:6px}
+      .formation-title{gap:6px}
+    }`;
+  document.head.appendChild(formationStyle);
+}
+
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const copyButton=document.querySelector('.copy-icon');
