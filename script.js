@@ -102,6 +102,29 @@ if(formationTimeline){
   document.head.appendChild(formationStyle);
 }
 
+// Contato — reconstrói o bloco do zero para evitar ícones/botões duplicados.
+const contactActions=document.querySelector('#contato .actions');
+if(contactActions){
+  contactActions.classList.add('contact-actions-clean');
+  contactActions.innerHTML=`
+    <a class="btn whatsapp-primary" href="https://wa.me/5581995741005" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
+      <svg class="contact-icon brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.43 14.92L2 22l5.21-1.56A9.94 9.94 0 1 0 12.04 2Zm5.79 14.29c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.14.12-1.84-.1-.43-.14-.98-.32-1.68-.63-2.95-1.28-4.88-4.28-5.03-4.48-.14-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.24.58.82 2.01.89 2.16.07.14.12.32.02.51-.1.2-.15.32-.29.49-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.14.46.12.63-.07.17-.2.73-.85.92-1.14.19-.29.39-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.56.34.07.12.07.7-.17 1.38Z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a class="btn outline" href="mailto:giliardifreitas@gmail.com" aria-label="Enviar e-mail">
+      <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      <span>E-mail</span>
+    </a>
+    <a class="btn outline" href="https://www.linkedin.com/in/giliardi-freitas" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn">
+      <svg class="contact-icon brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V19h3.38V8.5ZM5.25 3a1.96 1.96 0 1 0 0 3.92A1.96 1.96 0 0 0 5.25 3ZM20.44 12.98c0-3.16-1.69-4.63-3.95-4.63-1.82 0-2.63 1-3.08 1.7V8.5h-3.38V19h3.38v-5.2c0-1.37.26-2.7 1.96-2.7 1.68 0 1.7 1.57 1.7 2.79V19h3.38v-6.02Z"/></svg>
+      <span>LinkedIn</span>
+    </a>
+    <a class="btn outline" href="https://github.com/giliardif" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitHub">
+      <svg class="contact-icon brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.88-.02-1.73-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.35 1.11 2.92.85.09-.66.35-1.11.64-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.35 9.35 0 0 1 12 6.93c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.24 10.24 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg>
+      <span>GitHub</span>
+    </a>`;
+}
+
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const copyButton=document.querySelector('.copy-icon');
