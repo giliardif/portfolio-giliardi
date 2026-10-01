@@ -1,0 +1,34 @@
+/* Ajustes finos de alinhamento e contato */
+#formacao .formation-icon{display:grid;place-items:center;flex:0 0 auto}
+#formacao .formation-icon svg{display:block}
+
+.contact .actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:0}
+.contact .actions .btn{gap:9px;white-space:nowrap;padding:0 14px}
+.contact .actions .contact-icon{width:20px;height:20px;display:block;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.contact .actions .brand-icon{fill:currentColor;stroke:none}
+.contact .actions .whatsapp-primary{background:linear-gradient(135deg,#17b989,#10a875);border-color:rgba(38,223,173,.5);box-shadow:0 12px 30px rgba(16,168,117,.2)}
+.contact .actions .email-secondary{background:rgba(6,25,42,.75)}
+
+@media(max-width:980px){
+  .contact{grid-template-columns:1fr}
+  .contact .actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:760px){
+  #formacao .timeline{display:grid;grid-template-columns:1fr;gap:0}
+  #formacao .timeline article{display:grid;grid-template-columns:72px minmax(0,1fr)!important;gap:14px!important;align-items:center!important;min-height:92px;padding:0!important}
+  #formacao .timeline article>i{width:58px!important;height:58px!important;margin:0!important;justify-self:start!important;align-self:center!important;transform:none!important}
+  #formacao .timeline article>div{align-self:center!important;padding:0!important;margin:0!important}
+  #formacao .timeline>b{width:2px!important;height:28px!important;margin:0 0 0 28px!important;justify-self:start!important;align-self:stretch!important}
+  #formacao .timeline>b:after{right:auto!important;left:-3px!important;top:50%!important;transform:translateY(-50%)!important}
+  #formacao .formation-title{align-items:center}
+
+  .contact{padding:26px 20px}
+  .contact .actions{grid-template-columns:1fr 1fr;gap:10px;width:100%}
+  .contact .actions .btn{width:100%;min-height:52px;padding:0 12px;font-size:.78rem}
+}
+
+@media(max-width:430px){
+  .contact .actions{grid-template-columns:1fr}
+  .contact .actions .btn{justify-content:flex-start;padding-left:18px}
+}
